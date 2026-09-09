@@ -5,9 +5,9 @@
 
 ## Integrantes
 
-| Nombre completo | Usuario Oracle |
+| Nombre completo | Correo Institucional |
 |---|---|
-| Juan Pablo Conrado Molina |  |
+| Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co  |
 |  |  |
 |  |  |
 |  |  |
