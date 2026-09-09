@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Oracle / SQL clients
+*.log
+*.lst
+*.trc
+sqlnet.log
+tnsnames.ora
+wallet/
+*.dmp
+
+# Credenciales (nunca subir usuario/clave de Oracle)
+.env
+credenciales*
+conexion*.txt
+
+# Sistema
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
