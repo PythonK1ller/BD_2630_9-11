@@ -22,7 +22,8 @@ en dialecto Oracle. No es portable a PostgreSQL/MySQL sin traducción.
 │   │   ├── 00_borrar_tablas.sql    ← limpieza para re-ejecutar desde cero
 │   │   └── 01_crear_tablas.sql     ← DDL: 5 tablas, PK, FK, UNIQUE, CHECK
 │   ├── 02_dml/
-│   │   ├── 01_edificios.sql
+│   │   ├── 00_poblar_plsql.sql ← poblamiento completo en un bloque PL/SQL
+│   │   ├── 01_edificios.sql    ← (alternativa) mismos datos como INSERT estáticos
 │   │   ├── 02_pisos.sql
 │   │   ├── 03_cafeterias.sql
 │   │   ├── 04_colaboradores.sql
@@ -35,7 +36,7 @@ en dialecto Oracle. No es portable a PostgreSQL/MySQL sin traducción.
 ├── entrega/
 │   └── proyecto1_entrega_unico.sql ← todo concatenado, para subir a Brightspace
 ├── scripts/
-│   └── generar_datos.py            ← regenera los archivos de 02_dml/
+│   └── generar_datos.py            ← opcional: regenera los INSERT estáticos
 └── docs/
     ├── informe.md                  ← plantilla del informe de Brightspace
     └── evidencias/                 ← pantallazos de los resultados
@@ -56,8 +57,19 @@ funciona con la estructura de carpetas al lado).
 Si ya hay objetos de una corrida anterior, descomente primero la línea que llama
 a `00_borrar_tablas.sql` dentro del script maestro.
 
-Para regenerar el poblamiento con otros datos, cambie la constante `SEMILLA` en
-`scripts/generar_datos.py` y ejecute `python3 scripts/generar_datos.py`.
+### Dos formas de poblar (use una, nunca las dos)
+
+1. **`sql/02_dml/00_poblar_plsql.sql`** — un solo bloque PL/SQL anónimo que
+   genera las 5 tablas con bucles y `DBMS_RANDOM`. Es la opción por defecto del
+   script maestro: no depende de Python y cabe en un archivo corto. Para variar
+   los datos, cambie `c_semilla` dentro del bloque.
+2. **`sql/02_dml/01_edificios.sql` … `05_metas.sql`** — los mismos datos como
+   `INSERT` literales, uno por fila. Útil si prefiere que el script de entrega
+   muestre cada tupla de forma explícita. Se regeneran con
+   `python3 scripts/generar_datos.py` (cambie `SEMILLA` para otros valores).
+
+Ambas cumplen todos los lineamientos del enunciado; solo cambian las cifras
+exactas (986 metas la estática, 1095 la de PL/SQL).
 
 ## Qué garantiza el poblamiento
 
@@ -67,7 +79,7 @@ Para regenerar el poblamiento con otros datos, cambie la constante `SEMILLA` en
 | ~5 pisos por edificio | 200 pisos (4–6 por edificio) |
 | ~12 cafeterías en el campus | 12, repartidas en 10 edificios |
 | 20–30 colaboradores | 26 (PLANTA y TEMPORAL) |
-| Tabla META ≥ 500 registros | 986 |
+| Tabla META ≥ 500 registros | 1095 (PL/SQL) · 986 (estático) |
 | Periodo continuo ≥ 6 meses | 2025-09-01 → 2026-02-28 |
 | ≥ 2 edificios sin cafetería | 30 |
 | ≥ 3 pisos sin cafetería | 188 |
@@ -82,7 +94,7 @@ por año) devuelva más de un grupo y no una sola fila.
 
 | Vista | Filas |
 |---|---|
-| VISTA_1 | 646 |
+| VISTA_1 | 697 |
 | VISTA_2 | 200 |
 | VISTA_3 | 5 (4 grupos + gran total) |
 | VISTA_4 | 24 |
@@ -90,7 +102,18 @@ por año) devuelva más de un grupo y no una sola fila.
 | VISTA_6 | 5 |
 | VISTA_7 | 11 (10 edificios + totales) |
 
-Ninguna queda vacía, como pide la nota final del enunciado.
+Ninguna queda vacía, como pide la nota final del enunciado. (Cifras del
+poblamiento PL/SQL; con los `INSERT` estáticos varían un poco pero ninguna
+vista queda en cero.)
+
+**Detalle del recorrido de fechas en el bloque PL/SQL:** para cada par
+(colaborador, cafetería) se avanza en saltos de 24 o 13 días desde un desfase
+propio. El paso es **impar a propósito**: con un múltiplo de 7 todas las fechas
+del par caerían siempre en el mismo día de la semana, y los pares que
+arrancaran en domingo (día no operativo) se quedarían sin ninguna meta. Como
+las fechas son estrictamente crecientes dentro de cada par, la llave natural
+`(idcolaborador, idcafeteria, fechameta)` nunca se repite y no hace falta
+manejar `DUP_VAL_ON_INDEX`.
 
 ## Decisiones de diseño que conviene defender en el informe
 

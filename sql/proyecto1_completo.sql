@@ -21,13 +21,17 @@ SET PAGESIZE 100
 -- 2. Creacion del esquema
 @@01_ddl/01_crear_tablas.sql
 
--- 3. Poblamiento (el orden respeta las llaves foraneas)
-@@02_dml/01_edificios.sql
-@@02_dml/02_pisos.sql
-@@02_dml/03_cafeterias.sql
-@@02_dml/04_colaboradores.sql
-@@02_dml/05_metas.sql
-@@02_dml/06_resincronizar_identities.sql
+-- 3. Poblamiento. Bloque PL/SQL unico: genera las 5 tablas y resincroniza
+--    las columnas IDENTITY. No requiere herramientas externas.
+@@02_dml/00_poblar_plsql.sql
+
+--    ALTERNATIVA con INSERT estaticos (uno u otro, NUNCA los dos):
+-- @@02_dml/01_edificios.sql
+-- @@02_dml/02_pisos.sql
+-- @@02_dml/03_cafeterias.sql
+-- @@02_dml/04_colaboradores.sql
+-- @@02_dml/05_metas.sql
+-- @@02_dml/06_resincronizar_identities.sql
 
 -- 4. Vistas
 @@03_vistas/vista_1.sql
