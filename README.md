@@ -8,7 +8,7 @@ Curso de Bases de Datos — Ing. Julio Omar Palacio Niño, M.Sc.
 | Nombre completo | Usuario GitHub |
 |---|---|
 | Pablo Alfonso Jimenez Becerra | @PythonK1ller  |
-|  |  |
+| Cristian Almeida Velasco | @KHryyz |
 |  |  |
 |  |  |
 
