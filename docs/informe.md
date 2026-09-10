@@ -10,7 +10,7 @@
 | Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co  |
 | Samuel Barrera | ba.samuel@javeriana.edu.co |
 | Cristian Almeida | cristian_almeida@javeriana.edu.co |
-|  |  |
+|  Samuel Alejandro Baron Alba| baronsalejandro@javeriana.edu.co  |
 
 > Cada integrante montó el proyecto completo en su propio usuario.
 
