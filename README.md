@@ -9,7 +9,7 @@ Curso de Bases de Datos — Ing. Julio Omar Palacio Niño, M.Sc.
 |---|---|
 | Pablo Alfonso Jimenez Becerra | @PythonK1ller  |
 | Cristian Almeida Velasco | @KHryyz |
-|  |  |
+| Samuel Alejandro Baron Alba | @SamuelBaron08 |
 |  |  |
 
 
