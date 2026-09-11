@@ -4,14 +4,18 @@
 **Sistema:** Cafeterías de los servicios de alimentación PUJ
 
 ## Integrantes
+## Integrantes
 
-| Nombre completo | Correo Institucional | Usuario Oracle
-| Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co  | is100816
-| Samuel Barrera | ba.samuel@javeriana.edu.co | is100805
-| Cristian Almeida | cristian_almeida@javeriana.edu.co | is100802
-|  Samuel Alejandro Baron Alba| baronsalejandro@javeriana.edu.co  | is100804
+| Nombre completo | Correo Institucional | Usuario Oracle |
+| :--- | :--- | :--- |
+| Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co | is100816 |
+| Samuel Barrera | ba.samuel@javeriana.edu.co | is100805 |
+| Cristian Almeida | cristian_almeida@javeriana.edu.co | is100802 |
+| Samuel Alejandro Baron Alba | baronsalejandro@javeriana.edu.co | is100804 |
 
 > Cada integrante montó el proyecto completo en su propio usuario.
+
+
 
 ---
 
