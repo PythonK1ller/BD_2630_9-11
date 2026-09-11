@@ -9,9 +9,9 @@ Curso de Bases de Datos — Ing. Julio Omar Palacio Niño, M.Sc.
 | Nombre completo | Correo Institucional | Usuario Oracle | Usuario GitHub |
 | :--- | :--- | :--- | :--- |
 | Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co | is100816 | @PythonK1ller  |
-| Samuel Barrera | ba.samuel@javeriana.edu.co | is100805 | @SamuelBaron08 |
+| Samuel Barrera | ba.samuel@javeriana.edu.co | is100805 | @Chamoawd |
 | Cristian Almeida | cristian_almeida@javeriana.edu.co | is100802 |@KHryyz |
-| Samuel Alejandro Baron Alba | baronsalejandro@javeriana.edu.co | is100804 |  @Chamoawd |
+| Samuel Alejandro Baron Alba | baronsalejandro@javeriana.edu.co | is100804 |  @SamuelBaron08  |
 
 > Cada integrante montó el proyecto completo en su propio usuario.
 |
