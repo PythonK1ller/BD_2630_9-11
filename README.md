@@ -4,7 +4,6 @@ Sistema de cafeterías para los servicios de alimentación de la Pontificia Univ
 Curso de Bases de Datos — Ing. Julio Omar Palacio Niño, M.Sc.
 
 ## Integrantes
-## Integrantes
 
 | Nombre completo | Correo Institucional | Usuario Oracle | Usuario GitHub |
 | :--- | :--- | :--- | :--- |
