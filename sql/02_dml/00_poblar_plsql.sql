@@ -1,8 +1,3 @@
---------------------------------------------------------------------------------
--- Proyecto 1 - Bases de Datos (PUJ)
--- 00_poblar_plsql.sql : poblamiento COMPLETO de las 5 tablas en un solo bloque
---------------------------------------------------------------------------------
-
 SET DEFINE OFF
 SET SERVEROUTPUT ON
 
@@ -44,7 +39,6 @@ DECLARE
 
     c_fecha_inicio  CONSTANT DATE := DATE '2025-09-01';
     c_fecha_fin     CONSTANT DATE := DATE '2026-02-28';
-    c_semilla       CONSTANT NUMBER := 20261;
 
     v_id_piso    PLS_INTEGER := 0;
     v_num_pisos  PLS_INTEGER;
@@ -57,9 +51,7 @@ DECLARE
     v_real       NUMBER;
     v_mes        PLS_INTEGER;
 BEGIN
-    DBMS_RANDOM.SEED(c_semilla);
-
-    -- Limpieza previa para evitar ORA-00001 (Duplicados)
+    -- Limpieza previa para evitar ORA-00001
     DELETE FROM meta;
     DELETE FROM cafeteria;
     DELETE FROM piso;
@@ -71,15 +63,10 @@ BEGIN
     END LOOP;
 
     FOR i IN 1 .. v_edificios.COUNT LOOP
-        v_num_pisos := CASE MOD(i, 5)
-                           WHEN 1 THEN 4
-                           WHEN 0 THEN 6
-                           ELSE 5
-                       END;
+        v_num_pisos := CASE MOD(i, 5) WHEN 1 THEN 4 WHEN 0 THEN 6 ELSE 5 END;
         FOR n IN 1 .. v_num_pisos LOOP
             v_id_piso := v_id_piso + 1;
-            INSERT INTO piso (id, numeropiso, idedificio)
-                 VALUES (v_id_piso, n, i);
+            INSERT INTO piso (id, numeropiso, idedificio) VALUES (v_id_piso, n, i);
         END LOOP;
     END LOOP;
 
@@ -87,8 +74,7 @@ BEGIN
         SELECT id INTO v_idpiso FROM piso
          WHERE idedificio = v_caf_edificio(i) AND numeropiso = v_caf_piso(i);
 
-        INSERT INTO cafeteria (id, nombre, idpiso)
-             VALUES (i, v_caf_nombre(i), v_idpiso);
+        INSERT INTO cafeteria (id, nombre, idpiso) VALUES (i, v_caf_nombre(i), v_idpiso);
     END LOOP;
 
     FOR i IN 1 .. v_colaboradores.COUNT LOOP
@@ -96,7 +82,6 @@ BEGIN
              VALUES (i,
                      v_colaboradores(i),
                      CASE WHEN MOD(i, 7) = 0 THEN 'CE' ELSE 'CC' END,
-                     -- Se redujo a 8 digitos para evitar desbordamiento
                      10000000 + MOD(i * 12345, 9000000), 
                      CASE WHEN MOD(i, 3) = 0 THEN 'TEMPORAL' ELSE 'PLANTA' END,
                      CASE MOD(i, 4) WHEN 0 THEN 15 WHEN 1 THEN 10 WHEN 2 THEN 8 ELSE 12 END);
@@ -110,19 +95,19 @@ BEGIN
             v_fecha := c_fecha_inicio + MOD(c * 3 + f * 5, 7);
 
             WHILE v_fecha <= c_fecha_fin LOOP
-                IF TO_CHAR(v_fecha, 'D', 'NLS_TERRITORY=AMERICA') <> '1' THEN
+                -- CORRECCIÓN A LA LÍNEA QUE ROMPÍA: Formato DY explícito en inglés
+                IF TO_CHAR(v_fecha, 'DY', 'NLS_DATE_LANGUAGE=ENGLISH') <> 'SUN' THEN
                     
-                    -- Se redujeron los valores base a la mitad para evitar desbordamiento (ORA-06502)
-                    v_base := (50 + TRUNC(DBMS_RANDOM.VALUE(0, 400))) * 1000;
+                    v_base := 50000 + (MOD(v_id_meta, 10) * 1000);
                     v_mes  := EXTRACT(MONTH FROM v_fecha);
 
                     v_factor := CASE
-                                    WHEN v_mes IN (11, 2) THEN DBMS_RANDOM.VALUE(0.55, 0.95)
-                                    WHEN v_mes IN (9, 1)  THEN DBMS_RANDOM.VALUE(0.70, 1.15)
-                                    ELSE                       DBMS_RANDOM.VALUE(0.85, 1.35)
+                                    WHEN v_mes IN (11, 2) THEN 75
+                                    WHEN v_mes IN (9, 1)  THEN 90
+                                    ELSE                       110
                                 END;
 
-                    v_real    := TRUNC(v_base * v_factor / 1000) * 1000;
+                    v_real    := v_base * v_factor / 100;
                     v_id_meta := v_id_meta + 1;
 
                     INSERT INTO meta (id, fechameta, valormeta, valorreal, idcafeteria, idcolaborador)
@@ -147,6 +132,5 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('  cafeterias   : ' || v_caf_nombre.COUNT);
     DBMS_OUTPUT.PUT_LINE('  colaboradores: ' || v_colaboradores.COUNT);
     DBMS_OUTPUT.PUT_LINE('  metas        : ' || v_id_meta);
-
 END;
 /
