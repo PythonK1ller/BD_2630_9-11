@@ -21,7 +21,8 @@
 Script: `sql/01_ddl/01_crear_tablas.sql`
 
 <img width="790" height="856" alt="image" src="https://github.com/user-attachments/assets/05067733-2339-4f0e-8821-d43e91e1285a" />
-![Uploading image.png…]()
+<img width="620" height="582" alt="image" src="https://github.com/user-attachments/assets/85c929af-0cd1-4eaf-ba5a-451df4d0b8eb" />
+
 
 
 
