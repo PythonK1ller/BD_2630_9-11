@@ -20,7 +20,8 @@
 
 Script: `sql/01_ddl/01_crear_tablas.sql`
 
-<img width="733" height="680" alt="image" src="https://github.com/user-attachments/assets/a7234ef4-bd3b-4b8f-8f62-4b370c66de23" />
+<img width="790" height="856" alt="image" src="https://github.com/user-attachments/assets/05067733-2339-4f0e-8821-d43e91e1285a" />
+
 
 
 ## 2. Inserción de tuplas (10%)
