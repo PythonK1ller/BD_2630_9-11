@@ -6,7 +6,6 @@
 ## Integrantes
 
 | Nombre completo | Correo Institucional | Usuario Oracle
-|---|---|
 | Pablo Alfonso Jimenez Becerra | jimenezb_p@javeriana.edu.co  | is100816
 | Samuel Barrera | ba.samuel@javeriana.edu.co | is100805
 | Cristian Almeida | cristian_almeida@javeriana.edu.co | is100802
