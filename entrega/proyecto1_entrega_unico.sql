@@ -460,13 +460,12 @@ SELECT tot.nombre                                        AS colaborador,
 
 CREATE OR REPLACE VIEW vista_6 AS
 SELECT col.nombre           AS colaborador,
-       col.tipodocumento    AS tipo_documento,
        col.numerodocumento  AS numero_documento
   FROM colaborador col
   JOIN meta        met ON met.idcolaborador = col.id
   JOIN cafeteria   caf ON caf.id = met.idcafeteria
   JOIN piso        pis ON pis.id = caf.idpiso
- GROUP BY col.id, col.nombre, col.tipodocumento, col.numerodocumento
+ GROUP BY col.id, col.nombre, col.numerodocumento
 HAVING COUNT(DISTINCT pis.idedificio) = ( SELECT COUNT(DISTINCT pis2.idedificio)
                                             FROM cafeteria caf2
                                             JOIN piso      pis2 ON pis2.id = caf2.idpiso )
