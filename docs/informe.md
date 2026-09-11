@@ -20,7 +20,8 @@
 
 Script: `sql/01_ddl/01_crear_tablas.sql`
 
-*(pegar script y pantallazo de las tablas creadas — `SELECT table_name FROM user_tables;`)*
+<img width="733" height="680" alt="image" src="https://github.com/user-attachments/assets/a7234ef4-bd3b-4b8f-8f62-4b370c66de23" />
+
 
 ## 2. Inserción de tuplas (10%)
 
