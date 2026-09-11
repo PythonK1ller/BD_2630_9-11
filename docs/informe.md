@@ -36,7 +36,7 @@ Scripts: `sql/02_dml/01_edificios.sql` … `05_metas.sql`
 
 
 
-Cumplimiento de los lineamientos obligatorios: *(pantallazo de la verificación)
+
 
 
 
