@@ -27,17 +27,15 @@ Script: `sql/01_ddl/01_crear_tablas.sql`
 
 Scripts: `sql/02_dml/01_edificios.sql` … `05_metas.sql`
 
-*(pantallazo de los conteos por tabla, salida de `sql/99_verificacion.sql`)*
+(pantallazo de los conteos por tabla, salida de `sql/99_verificacion.sql`)
+<img width="797" height="727" alt="image" src="https://github.com/user-attachments/assets/585e7167-8246-43d5-af65-3dcefb6555a4" />
 
-| Tabla | Registros |
-|---|---|
-| EDIFICIO | 40 |
-| PISO | 200 |
-| CAFETERIA | 12 |
-| COLABORADOR | 26 |
-| META | 986 |
 
-Cumplimiento de los lineamientos obligatorios: *(pantallazo de la verificación)*
+
+
+Cumplimiento de los lineamientos obligatorios: *(pantallazo de la verificación)
+<img width="620" height="582" alt="image" src="https://github.com/user-attachments/assets/ec40e071-39f7-432b-922b-1b043ee82454" />
+
 
 ## 3. Consultas SQL como vistas (70%)
 
