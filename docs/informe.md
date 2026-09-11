@@ -21,6 +21,7 @@
 Script: `sql/01_ddl/01_crear_tablas.sql`
 
 <img width="790" height="856" alt="image" src="https://github.com/user-attachments/assets/05067733-2339-4f0e-8821-d43e91e1285a" />
+![Uploading image.png…]()
 
 
 
@@ -35,7 +36,7 @@ Scripts: `sql/02_dml/01_edificios.sql` … `05_metas.sql`
 
 
 Cumplimiento de los lineamientos obligatorios: *(pantallazo de la verificación)
-<img width="620" height="582" alt="image" src="https://github.com/user-attachments/assets/ec40e071-39f7-432b-922b-1b043ee82454" />
+
 
 
 ## 3. Consultas SQL como vistas (70%)
