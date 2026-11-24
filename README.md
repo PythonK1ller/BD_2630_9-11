@@ -25,33 +25,44 @@ en dialecto Oracle. No es portable a PostgreSQL/MySQL sin traducción.
 
 ```
 .
-├── README.md
+BD_2630_9-11/
+├── PrimeraEntrega/
+│   ├── docs/
+│   │   ├── evidencias/
+│   │   │   └── .gitkeep
+│   │   └── informe.md
+│   ├── entrega/
+│   │   └── proyecto1_entrega_unico.sql
+│   ├── scripts/
+│   │   └── generar_datos.py
+│   └── sql/
+│       ├── 01_ddl/
+│       │   ├── 00_borrar_tablas.sql
+│       │   └── 01_crear_tablas.sql
+│       ├── 02_dml/
+│       │   ├── 00_poblar_plsql.sql
+│       │   ├── 01_edificios.sql
+│       │   ├── 02_pisos.sql
+│       │   ├── 03_cafeterias.sql
+│       │   ├── 04_colaboradores.sql
+│       │   ├── 05_metas.sql
+│       │   └── 06_resincronizar_identities.sql
+│       ├── 03_vistas/
+│       │   ├── vista_1.sql
+│       │   ├── vista_2.sql
+│       │   ├── vista_3.sql
+│       │   ├── vista_4.sql
+│       │   ├── vista_5.sql
+│       │   ├── vista_6.sql
+│       │   └── vista_7.sql
+│       ├── 04_permisos/
+│       │   └── 01_grants.sql
+│       ├── 99_verificacion.sql
+│       └── proyecto1_completo.sql
+├── SegundaEntrega/
+├── TerceraEntrega/
 ├── .gitignore
-├── sql/
-│   ├── proyecto1_completo.sql      ← script maestro: ejecuta todo en orden
-│   ├── 99_verificacion.sql         ← comprueba requisitos y filas de cada vista
-│   ├── 01_ddl/
-│   │   ├── 00_borrar_tablas.sql    ← limpieza para re-ejecutar desde cero
-│   │   └── 01_crear_tablas.sql     ← DDL: 5 tablas, PK, FK, UNIQUE, CHECK
-│   ├── 02_dml/
-│   │   ├── 00_poblar_plsql.sql ← poblamiento completo en un bloque PL/SQL
-│   │   ├── 01_edificios.sql    ← (alternativa) mismos datos como INSERT estáticos
-│   │   ├── 02_pisos.sql
-│   │   ├── 03_cafeterias.sql
-│   │   ├── 04_colaboradores.sql
-│   │   ├── 05_metas.sql
-│   │   └── 06_resincronizar_identities.sql
-│   ├── 03_vistas/
-│   │   └── vista_1.sql … vista_7.sql
-│   └── 04_permisos/
-│       └── 01_grants.sql           ← GRANT SELECT … TO JPALACIO
-├── entrega/
-│   └── proyecto1_entrega_unico.sql ← todo concatenado, para subir a Brightspace
-├── scripts/
-│   └── generar_datos.py            ← opcional: regenera los INSERT estáticos
-└── docs/
-    ├── informe.md                  ← plantilla del informe de Brightspace
-    └── evidencias/                 ← pantallazos de los resultados
+└── README.md
 ```
 
 ## Cómo ejecutar
